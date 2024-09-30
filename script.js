@@ -3,6 +3,8 @@ const containerVideos = document.querySelector(".videos__container");
 
 //Buscando dados da api e exibindo na pagina
 async function buscarEMostrarVideos(){
+
+   try {
       const busca = await fetch("http://localhost:3000/videos");
       const videos = await busca.json();
 
@@ -18,6 +20,9 @@ async function buscarEMostrarVideos(){
             </li>
          `;    
       })
+   } catch(error) {
+      containerVideos.innerHTML = `<p>Houve um erro ao carregar os vídeos: ${error}</p>`;
+   }
 }
 
 //chamando a função assincrona
