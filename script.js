@@ -25,5 +25,19 @@ async function buscarEMostrarVideos(){
    }
 }
 
-//chamando a função assincrona
 buscarEMostrarVideos();
+
+//barra de pesquisa
+const barraDePesquisa = document.querySelectorAll(".pesquisar__input");
+
+barraDePesquisa.addEventListener("input", filtrarPesquisa);
+
+function filtrarPesquisa() {
+   const videos = document.querySelectorAll(".videos__item");
+
+   if (barraDePesquisa.value != "") {
+
+   } else {
+      
+   }
+}
