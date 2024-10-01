@@ -34,6 +34,19 @@ barraDePesquisa.addEventListener("input", filtrarPesquisa);
 
 function filtrarPesquisa() {
    const videos = document.querySelectorAll(".videos__item");
+   const valorFiltro = barraDePesquisa.value.toLowerCase(); // Obtenha o valor fora do loop
+
+   videos.forEach(video => {
+      const titulo = video.querySelector(".titulo-video").textContent.toLowerCase();
+
+      // Verifica se o título inclui o valor do filtro ou se o campo de pesquisa está vazio
+      video.style.display = titulo.includes(valorFiltro) || valorFiltro === "" ? "block" : "none";
+   });
+}
+
+/*
+function filtrarPesquisa() {
+   const videos = document.querySelectorAll(".videos__item");
 
    if (barraDePesquisa.value != "") {
       for (let video of videos) {
@@ -50,3 +63,4 @@ function filtrarPesquisa() {
       video.style.display = "block";
    }
 }
+*/
